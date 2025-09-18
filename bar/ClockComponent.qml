@@ -11,7 +11,7 @@ Rectangle {
     Layout.alignment: Qt.AlignHCenter
     Layout.preferredWidth: Bar.Style.barWidth - 10
     Layout.preferredHeight: 50
-    Layout.bottomMargin: -5
+    Layout.bottomMargin: -2
 
     // Styling
     color: "transparent"
@@ -44,7 +44,7 @@ Rectangle {
     // Time display
     Column {
         anchors.centerIn: parent
-        spacing: 6
+        spacing: 0
         width: parent.width
 
         Text {
@@ -60,7 +60,7 @@ Rectangle {
             text: Qt.formatDateTime(systemClock.date, "mm")
             color: clockComponent.isPressed ? Bar.Style.workspaceFocusedTextColor : Bar.Style.textColor
             font.pixelSize: Bar.Style.mediumTextSize
-            font.bold: true
+            font.bold: false
             horizontalAlignment: Text.AlignHCenter
             width: parent.width
         }

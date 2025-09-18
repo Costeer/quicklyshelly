@@ -22,9 +22,9 @@ PanelWindow {
 
     // Set margins from Style
     margins {
-        top: Bar.Style.panelMarginTop
-        bottom: Bar.Style.panelMarginBottom
-        right: Bar.Style.panelMarginRight
+        top: -2
+        bottom: -2
+        right: -2
     }
 
     // Set the width of the bar
@@ -42,8 +42,8 @@ PanelWindow {
         color: Bar.Style.backgroundColor
         opacity: Bar.Style.backgroundOpacity
         radius: Bar.Style.panelRadius
-        border.width: Bar.Style.panelBorderWidth
-        border.color: Bar.Style.panelBorderColor
+        border.width: 2
+        border.color: "#7f849c"
     }
 
     // Main vertical layout
@@ -64,6 +64,8 @@ PanelWindow {
         }
 
         // System indicators at the bottom (battery, tray, clock)
-        Bar.SystemIndicators {}
+        Bar.SystemIndicators {
+            barWindow: sideBar
+        }
     }
 }

@@ -1,34 +1,28 @@
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
 import "." as Bar
 
 Column {
-    id: root
     spacing: Bar.Style.traySpacing
-
-    property var barWindow: null
 
     Repeater {
         model: SystemTray.items
+
         delegate: Item {
-            width: Bar.Style.barWidth
-            height: Bar.Style.trayIconSize
+            width: 3
+            height: 3
 
             IconImage {
-                x: 10
-                y: 1
-                width: 23
-                height: 23
+                anchors.centerIn: parent
+                width: 3
+                height: 3
                 source: modelData.icon
                 smooth: true
-                asynchronous: true
             }
 
             MouseArea {
-                id: trayMouseArea
                 anchors.fill: parent
                 acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
 
@@ -56,28 +50,11 @@ Column {
             QsMenuAnchor {
                 id: menuAnchor
                 menu: modelData.menu
-                anchor.window: root.barWindow
-                anchor.rect.x: {
-                    var totalX = trayMouseArea.x
-                    var currentItem = root.parent
-                    while (currentItem && currentItem !== root.barWindow) {
-                        totalX += currentItem.x
-                        currentItem = currentItem.parent
-                    }
-                    return totalX + 20  // Add 20px padding to move menu left
-                }
-                anchor.rect.y: {
-                    var totalY = trayMouseArea.y
-                    var currentItem = root.parent
-                    while (currentItem && currentItem !== root.barWindow) {
-                        totalY += currentItem.y
-                        currentItem = currentItem.parent
-                    }
-                    return totalY
-                }
-                anchor.rect.width: trayMouseArea.width
-                anchor.rect.height: trayMouseArea.height
-                anchor.edges: Edges.Right
+                anchor.rect.x: 0
+                anchor.rect.y: 0
+                anchor.rect.width: parent.width
+                anchor.rect.height: parent.height
+                anchor.edges: Edges.Left
             }
         }
     }

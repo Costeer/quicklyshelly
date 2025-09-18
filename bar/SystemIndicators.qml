@@ -5,6 +5,8 @@ import "." as Bar
 ColumnLayout {
     id: systemIndicators
 
+    property var barWindow: null
+
     // Layout properties
     Layout.alignment: Qt.AlignHCenter
     spacing: Bar.Style.itemSpacing
@@ -23,6 +25,7 @@ ColumnLayout {
         Layout.preferredWidth: Bar.Style.barWidth
         Layout.topMargin: 3
         Layout.bottomMargin: 3
+        barWindow: systemIndicators.barWindow
     }
 
     // Separator between system tray and clock

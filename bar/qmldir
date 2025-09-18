@@ -3,5 +3,8 @@ singleton Style 1.0 Style.qml
 WorkspaceIndicators 1.0 WorkspaceIndicators.qml
 ClockComponent 1.0 ClockComponent.qml
 SystemIndicators 1.0 SystemIndicators.qml
+SystemTrayView 1.0 SystemTrayView.qml
+SystemTray 1.0 SystemTray.qml
+SysTrayItem 1.0 SysTrayItem.qml
 ModuleSeparator 1.0 ModuleSeparator.qml
 PowerMenu 1.0 PowerMenu.qml
